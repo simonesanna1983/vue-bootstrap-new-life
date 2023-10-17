@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <!-- Load required Bootstrap and BootstrapVue CSS -->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"
+    />
+
+    <!-- Load polyfills to support older browsers -->
+    <script
+      src="//polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Load Vue followed by BootstrapVue -->
+    <script src="//unpkg.com/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+
+    <!-- Load the following for BootstrapVueIcons support -->
+    <script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue-icons.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+
+      <template>
+        <div>
+          <label for="example-datepicker">Choose a date</label>
+          <b-form-datepicker
+            id="example-datepicker"
+            v-model="value"
+            class="mb-2"
+            calendar-width="330px"
+            label-help=""
+            label-no-date-selected="Select a date"
+            :date-format-options="formatOption"
+            :start-weekday="weekday"
+            locale="it"
+          ></b-form-datepicker>
+          <p>Value: '{{ value }}'</p>
+        </div>
+      </template>
+    </div>
+
+    <script>
+       var app = new Vue({
+         el: '#app',
+         data: {
+           message: 'hello',
+           value: '',
+           formatOption: {  day: 'numeric', month: '2-digit', year: 'numeric', weekday: 'long' },
+           weekday: 1,
+         },
+
+         methods: {},
+         created: function () {
+           console.log('created');
+         },
+       });
+    </script>
+  </body>
+</html>
